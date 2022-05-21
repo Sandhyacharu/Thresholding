@@ -24,38 +24,37 @@ Use Otsu's method to segment the image.
 
 ### Step 6:
 Display the results.
-
-# Load the necessary packages
-
+# Program
+### Load the necessary packages
+```python3
 import cv2
 import matplotlib.pyplot as plt
 import numpy as np
-
-# Read the Image and convert to grayscale
-
+```
+### Read the Image and convert to grayscale
+```python3
 image=cv2.imread("Tvd.jpg")
 image1=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
-
-# Use Global thresholding to segment the image
-
+```
+### Use Global thresholding to segment the image
+```python3
 ret, thresh1 = cv2.threshold(image1,100,200,cv2.THRESH_BINARY)
 ret, thresh2 = cv2.threshold(image1,100,200,cv2.THRESH_BINARY_INV)
 ret, thresh3 = cv2.threshold(image1,100,200,cv2.THRESH_TRUNC)
 ret, thresh4 = cv2.threshold(image1,100,200,cv2.THRESH_TOZERO)
 ret, thresh5 = cv2.threshold(image1,100,200,cv2.THRESH_TOZERO_INV)
-
-
-# Use Adaptive thresholding to segment the image
-
+```
+### Use Adaptive thresholding to segment the image
+```python3
 th1=cv2.adaptiveThreshold(image1,255,cv2.ADAPTIVE_THRESH_MEAN_C,cv2.THRESH_BINARY,11,2)
 th2=cv2.adaptiveThreshold(image1,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,11,2)
-
-# Use Otsu's method to segment the image 
-
+```
+### Use Otsu's method to segment the image 
+```python3
 ret2,th3 = cv2.threshold(image1,0,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)
-
-# Display the results
-
+```
+### Display the results
+```python3
 titles=["Gray Image","THRESH_BINARY","THRESH_BINARY_INV","THRESH_TRUNC"
        ,"THRESH_TOZERO","THRESH_TOZERO_INV","ADAPTIVE_THRESH_MEAN_C","ADAPTIVE_THRESH_GAUSSIAN_C","OTSU"]
 images=[image1,thresh1,thresh2,thresh3,thresh4,thresh5,th1,th2,th3]
