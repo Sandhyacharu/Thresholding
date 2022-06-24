@@ -1,4 +1,4 @@
-### EX NO: 02
+### EX NO: 09
 ### DATE:
 # <p align="center">THRESHOLDING OF IMAGE</p>
 
